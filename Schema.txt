@@ -1,0 +1,63 @@
++-------------------+
+| Tables_in_Chinook |
++-------------------+
+| Album             |
+| Artist            |
+| Customer          |
+| Employee          |
+| Genre             |
+| Invoice           |
+| InvoiceLine       |
+| MediaType         |
+| Playlist          |
+| PlaylistTrack     |
+| Track             |
++-------------------+
+
+Album
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| AlbumId  | int          | NO   | PRI | NULL    | auto_increment |
+| Title    | varchar(160) | NO   |     | NULL    |                |
+| ArtistId | int          | NO   | MUL | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+Artist
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| ArtistId | int          | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(120) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+Playlist
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| PlaylistId | int          | NO   | PRI | NULL    | auto_increment |
+| Name       | varchar(120) | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
+PlaylistTrack
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| PlaylistId | int  | NO   | PRI | NULL    |       |
+| TrackId    | int  | NO   | PRI | NULL    |       |
++------------+------+------+-----+---------+-------+
+
+Track
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| TrackId      | int           | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(200)  | NO   |     | NULL    |                |
+| AlbumId      | int           | YES  | MUL | NULL    |                |
+| MediaTypeId  | int           | NO   | MUL | NULL    |                |
+| GenreId      | int           | YES  | MUL | NULL    |                |
+| Composer     | varchar(220)  | YES  |     | NULL    |                |
+| Milliseconds | int           | NO   |     | NULL    |                |
+| Bytes        | int           | YES  |     | NULL    |                |
+| UnitPrice    | decimal(10,2) | NO   |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
